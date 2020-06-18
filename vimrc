@@ -16,7 +16,6 @@ Plugin 'elzr/vim-json'
 Plugin 'aperezdc/vim-template'
 Plugin 'mileszs/ack.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'fatih/vim-go'
 Plugin 'AndrewRadev/linediff.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
@@ -25,7 +24,6 @@ let g:vim_json_syntax_conceal = 0
 let g:templates_no_builtin_templates = 1
 let g:templates_directory = "~/.vim/templates"
 let g:templates_global_name_prefix = "vim_template"
-let g:templates_user_variables = [ ['CONFIDENTIAL', 'GetConfidential'], ]
 
 let g:ycm_confirm_extra_conf = 0
 
@@ -142,8 +140,8 @@ set expandtab
 set smarttab
 
 " 1 tab == 2 spaces
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 
 " Linebreak on 500 characters
 set lbr
@@ -275,13 +273,6 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
-function! GetConfidential()
-  let l:path = findfile("CONFIDENTIAL", ".;")
-  let l:confidential = substitute(system("cat " . l:path), '\n\+$', '', '')
-  return l:confidential
-endfunction
-
-
 " set textwidth=100
 " set colorcolumn=+1
 " hi ColorColumn ctermbg=lightgrey guibg=lightgrey
@@ -293,3 +284,4 @@ map <F6> <Esc>:w<CR>:make -j 8<CR><Enter>:copen<CR>
 
 :nnoremap gr :!ack '\b<cword>\b' %:p:h/*<CR>
 :nnoremap gy :YcmCompleter GoTo<CR>
+:nnoremap fy :YcmCompleter FixIt<CR>
