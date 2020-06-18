@@ -11,7 +11,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'chrisbra/histwin.vim'
-Plugin 'dracula/vim'
 Plugin 'elzr/vim-json'
 Plugin 'aperezdc/vim-template'
 Plugin 'mileszs/ack.vim'
@@ -105,7 +104,6 @@ set tm=500
 syntax enable
 
 set t_Co=256
-color dracula
 
 " Set extra options when running in GUI mode
 if has("gui_running")
